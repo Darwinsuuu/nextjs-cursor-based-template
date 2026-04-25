@@ -1,0 +1,70 @@
+---
+description: Enforce file and folder structure plus kebab-case naming
+alwaysApply: false
+---
+# File and Folder Structure Naming Convention
+
+## Naming
+
+- Use `kebab-case` for all file names and folder names.
+- Avoid spaces, underscores, and camelCase/PascalCase in folder and file paths.
+
+## Page Location
+
+- Store all pages in `src/pages`.
+- Each page should live in its own folder under `src/pages`.
+
+## Subpages
+
+- If a page has subpages, place them under `src/pages/{page-name}/(sub-pages)/{sub-page-name}`.
+- Keep subpage file/folder names in `kebab-case`.
+- Do not create a `parts` folder inside subpages.
+
+## Component Placement
+
+- Put shared components used across multiple pages in `src/components`.
+- Put page-scoped components (used by one page and/or its subpages) only in `src/pages/{page-name}/parts`.
+- The `parts` folder is allowed only at the main page folder level.
+
+## Parts File Naming
+
+- Files inside `src/pages/{page-name}/parts` must follow `{page-name}-{description}.tsx`.
+- Keep `{description}` in `kebab-case`.
+- Examples:
+  - `dashboard-widgets.tsx`
+  - `analytics-chard-cards.tsx`
+
+## Example Structure
+
+```text
+src/
+  components/
+    app-header/
+      app-header.tsx
+    empty-state/
+      empty-state.tsx
+  pages/
+    dashboard/
+      page.tsx
+      parts/
+        dashboard-summary-card.tsx
+        dashboard-widgets.tsx
+        analytics-chard-cards.tsx
+      (sub-pages)/
+        analytics/
+          page.tsx
+    account-settings/
+      page.tsx
+      parts/
+        profile-form.tsx
+```
+
+## Quick Checks
+
+- New path uses `kebab-case`.
+- New page is under `src/pages/{page-name}`.
+- Shared UI goes to `src/components`.
+- Page-only UI goes to `src/pages/{page-name}/parts` (main page folder only).
+- Subpages follow `src/pages/{page-name}/(sub-pages)/{sub-page-name}`.
+- Subpages do not have their own `parts` folder.
+- Parts files follow `{page-name}-{description}.tsx`.
